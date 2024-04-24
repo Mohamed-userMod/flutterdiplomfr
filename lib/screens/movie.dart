@@ -130,6 +130,14 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
+            "Date de sortie: ${film.date}",
+            style: GoogleFonts.openSans(
+              fontSize: 16,
+              color: _descriptionColor,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
             film.description,
             style: GoogleFonts.openSans(
               fontSize: 16,

@@ -93,14 +93,26 @@ class _FavoritesPageState extends State<FavoritesPage> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          subtitle: Text(
-                            movie.description,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              fontSize: 14.0,
-                              color: Colors.grey[700],
-                            ),
+                          subtitle: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Date de sortie: ${movie.date}', // Ajouter la date de sortie ici
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    color: Colors.grey[700],
+                                    fontFamily: "700"),
+                              ),
+                              Text(
+                                movie.description,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  fontSize: 14.0,
+                                  color: Colors.grey[700],
+                                ),
+                              ),
+                            ],
                           ),
                           trailing: IconButton(
                             icon: Icon(Icons.delete),

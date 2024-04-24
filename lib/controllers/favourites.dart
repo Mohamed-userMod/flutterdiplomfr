@@ -4,12 +4,14 @@ import "../models/movie.dart";
 class FavoriteMovie {
   final int id;
   final String title;
+  final String date;
   final String description;
   final String posterUrl;
 
   FavoriteMovie({
     required this.id,
     required this.title,
+    required this.date,
     required this.description,
     required this.posterUrl,
   });
@@ -18,6 +20,7 @@ class FavoriteMovie {
     return {
       'id': id,
       'title': title,
+      'date': date,
       'description': description,
       'posterUrl': posterUrl,
     };
@@ -27,6 +30,7 @@ class FavoriteMovie {
     return FavoriteMovie(
       id: film.id,
       title: film.title,
+      date: film.date,
       description: film.description,
       posterUrl: film.posterUrl,
     );
@@ -40,11 +44,11 @@ class DatabaseHelper {
 
   Future<void> initDatabase() async {
     _database = await openDatabase(
-      'favorite_movies_test.db',
+      'database_test_test.db',
       version: 1,
       onCreate: (db, version) {
         return db.execute(
-          'CREATE TABLE favorite_movies(id INTEGER PRIMARY KEY, title TEXT, description TEXT, posterUrl TEXT)',
+          'CREATE TABLE favorite_movies(id INTEGER PRIMARY KEY, title TEXT, description TEXT, date TEXT, posterUrl TEXT)',
         );
       },
     );
@@ -85,6 +89,7 @@ class DatabaseHelper {
         return FavoriteMovie(
           id: maps[index]['id'],
           title: maps[index]['title'],
+          date: maps[index]['date'],
           description: maps[index]['description'],
           posterUrl: maps[index]['posterUrl'],
         );
